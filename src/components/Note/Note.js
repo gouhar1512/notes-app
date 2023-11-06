@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./Note.css";
 import { deleteNote } from "../../store/slices/notesListSlice";
 import { setNoteIdToUpdate } from "../../store/slices/noteIdToUpdateSlice";
+import "./Note.css";
 
 const Note = ({ note }) => {
   const dispatch = useDispatch();
   const noteIdToUpdate = useSelector((state) => state.noteIdToUpdate.id);
+  const noteSelected = noteIdToUpdate === note.id;
+
+  const noteClasses = `note ${noteSelected ? "note-selected" : ""}`;
 
   const deleteNoteHandler = () => {
     if (note.id === noteIdToUpdate) {
@@ -19,7 +22,7 @@ const Note = ({ note }) => {
   };
 
   return (
-    <div className="note">
+    <div className={noteClasses}>
       <div className="note-title">{note.title}</div>
       <div className="note-content">{note.content}</div>
       <div className="note-ctas">
