@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  addNote,
+  deleteNote,
+  updateNote,
+} from "../../store/slices/notesListSlice";
+
 import "./NoteForm.css";
-import { intialState } from "../../store/reference";
 
 const NoteForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const id = crypto.randomUUID();
   const [isUpdatingNote, setIsUpdatingNote] = useState(false);
+  const dispatch = useDispatch();
 
-  const { notesList } = intialState;
+  const notesList = useSelector((state) => state.notesList);
   const noteIdToUpdate = null;
 
   useEffect(() => {
@@ -54,6 +62,13 @@ const NoteForm = () => {
       // dispatch(SET_NOTEID_TO_UPDATE_ACTION(null));
     } else {
       // dispatch(ADD_ACTION(id, title, content));
+      dispatch(
+        addNote({
+          id,
+          title,
+          content,
+        })
+      );
     }
     setTitle("");
     setContent("");

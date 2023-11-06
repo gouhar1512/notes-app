@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import { intialState } from "../../store/reference";
 import Note from "../Note/Note";
 import "./NotesList.css";
 
 const NotesList = () => {
-  const { notesList } = intialState;
+  const notesList = useSelector((state) => state.notesList);
 
   if (notesList.length === 0) {
     return <div className="notes-list">Add some notes</div>;

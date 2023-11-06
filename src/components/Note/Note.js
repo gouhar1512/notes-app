@@ -1,8 +1,12 @@
+import { useDispatch } from "react-redux";
 import "./Note.css";
+import { deleteNote } from "../../store/slices/notesListSlice";
 
 const Note = ({ note }) => {
+  const dispatch = useDispatch();
+
   const deleteNoteHandler = () => {
-    // dispatch(DELETE_ACTION(note.id));
+    dispatch(deleteNote(note.id));
   };
 
   const setNoteToUpdateHandler = () => {

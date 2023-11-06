@@ -1,8 +1,8 @@
 import React from "react";
 import NoteForm from "../NoteForm/NoteForm";
 import NotesList from "../NotesList/NotesList";
-import "./NotesManager.css";
-const NotesManager = () => {
+import "./NotesApp.css";
+const NotesApp = () => {
   return (
     <div className="notes-manager">
       <NoteForm />
@@ -11,4 +11,4 @@ const NotesManager = () => {
   );
 };
 
-export default NotesManager;
+export default NotesApp;
