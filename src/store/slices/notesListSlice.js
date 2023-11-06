@@ -1,9 +1,9 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = [
-  { id: 1, title: "Note 1", body: "This is note one" },
-  { id: 2, title: "Note 2", body: "This is note two" },
-  { id: 3, title: "Note 3", body: "This is note three" },
+  { id: 1, title: "Note 1", content: "This is note one" },
+  { id: 2, title: "Note 2", content: "This is note two" },
+  { id: 3, title: "Note 3", content: "This is note three" },
 ];
 
 const notesListSlice = createSlice({
@@ -11,8 +11,8 @@ const notesListSlice = createSlice({
   initialState,
   reducers: {
     addNote: function (state, action) {
-      const newNote = action.payload;
-      state.push(newNote);
+      const { id, title, content } = action.payload;
+      state.push({ id: id, title: title, content: content });
     },
     deleteNote: function (state, action) {
       const noteId = action.payload;
@@ -22,12 +22,12 @@ const notesListSlice = createSlice({
       }
     },
     updateNote: function (state, action) {
-      const { noteId, title, body } = action.payload;
-      const index = state.findIndex((note) => note.id === noteId);
+      const { id, title, content } = action.payload;
+      const index = state.findIndex((note) => note.id === id);
       if (index > -1) {
         state[index] = {
           title,
-          body,
+          content,
         };
       }
     },

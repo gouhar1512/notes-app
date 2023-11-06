@@ -12,7 +12,7 @@ const Note = ({ note }) => {
   return (
     <div className="note">
       <div className="note-title">{note.title}</div>
-      <div className="note-content">{note.body}</div>
+      <div className="note-content">{note.content}</div>
       <div className="note-ctas">
         <div className="btn btn-note-update" onClick={setNoteToUpdateHandler}>
           <i className="fa fa-edit"></i>
