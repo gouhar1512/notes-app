@@ -36,4 +36,4 @@ const notesListSlice = createSlice({
 
 export default notesListSlice;
 export const notesListReducer = notesListSlice.reducer;
-export const notesListActions = notesListSlice.actions;
+export const { addNote, deleteNote, updateNote } = notesListSlice.actions;
