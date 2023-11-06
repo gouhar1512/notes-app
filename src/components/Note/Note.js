@@ -1,16 +1,21 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Note.css";
 import { deleteNote } from "../../store/slices/notesListSlice";
+import { setNoteIdToUpdate } from "../../store/slices/noteIdToUpdateSlice";
 
 const Note = ({ note }) => {
   const dispatch = useDispatch();
+  const noteIdToUpdate = useSelector((state) => state.noteIdToUpdate.id);
 
   const deleteNoteHandler = () => {
+    if (note.id === noteIdToUpdate) {
+      dispatch(setNoteIdToUpdate(null));
+    }
     dispatch(deleteNote(note.id));
   };
 
   const setNoteToUpdateHandler = () => {
-    // dispatch(SET_NOTEID_TO_UPDATE_ACTION(note.id));
+    dispatch(setNoteIdToUpdate(note.id));
   };
 
   return (

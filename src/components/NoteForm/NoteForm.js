@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  addNote,
-  deleteNote,
-  updateNote,
-} from "../../store/slices/notesListSlice";
+import { addNote, updateNote } from "../../store/slices/notesListSlice";
 
 import "./NoteForm.css";
+import { setNoteIdToUpdate } from "../../store/slices/noteIdToUpdateSlice";
 
 const NoteForm = () => {
   const [title, setTitle] = useState("");
@@ -17,7 +14,7 @@ const NoteForm = () => {
   const dispatch = useDispatch();
 
   const notesList = useSelector((state) => state.notesList);
-  const noteIdToUpdate = null;
+  const noteIdToUpdate = useSelector((state) => state.noteIdToUpdate.id);
 
   useEffect(() => {
     if (noteIdToUpdate && notesList.length > 0) {
@@ -47,7 +44,7 @@ const NoteForm = () => {
   };
 
   const cancelUpdateHandler = () => {
-    // dispatch(SET_NOTEID_TO_UPDATE_ACTION(null))
+    dispatch(setNoteIdToUpdate(null));
   };
 
   const onSubmitHandler = (e) => {
@@ -58,10 +55,15 @@ const NoteForm = () => {
     }
 
     if (noteIdToUpdate && notesList.length > 0) {
-      // dispatch(UPDATE_ACTION(title, content));
-      // dispatch(SET_NOTEID_TO_UPDATE_ACTION(null));
+      dispatch(
+        updateNote({
+          id: noteIdToUpdate,
+          title,
+          content,
+        })
+      );
+      dispatch(setNoteIdToUpdate(null));
     } else {
-      // dispatch(ADD_ACTION(id, title, content));
       dispatch(
         addNote({
           id,

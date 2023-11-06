@@ -18,4 +18,5 @@ const noteIdToUpdateSlice = createSlice({
 
 export default noteIdToUpdateSlice;
 export const noteIdToUpdateReducer = noteIdToUpdateSlice.reducer;
-export const noteIdToUpdateActions = noteIdToUpdateSlice.actions;
+export const { setNoteIdToUpdate, resetNoteIdToUpdate } =
+  noteIdToUpdateSlice.actions;

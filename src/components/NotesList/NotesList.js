@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { intialState } from "../../store/reference";
 import Note from "../Note/Note";
 import "./NotesList.css";
 

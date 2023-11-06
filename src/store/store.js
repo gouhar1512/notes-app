@@ -1,9 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { notesListActions, notesListReducer } from "./slices/notesListSlice";
-import {
-  noteIdToUpdateActions,
-  noteIdToUpdateReducer,
-} from "./slices/noteIdToUpdateSlice";
+import { notesListReducer } from "./slices/notesListSlice";
+import { noteIdToUpdateReducer } from "./slices/noteIdToUpdateSlice";
 
 const store = configureStore({
   reducer: {

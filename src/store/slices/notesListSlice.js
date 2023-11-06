@@ -25,10 +25,8 @@ const notesListSlice = createSlice({
       const { id, title, content } = action.payload;
       const index = state.findIndex((note) => note.id === id);
       if (index > -1) {
-        state[index] = {
-          title,
-          content,
-        };
+        state[index].title = title;
+        state[index].content = content;
       }
     },
   },
