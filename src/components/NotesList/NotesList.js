@@ -1,9 +1,10 @@
-import store from "../../store/store";
+import { intialState } from "../../store/reference";
 import Note from "../Note/Note";
 import "./NotesList.css";
 
 const NotesList = () => {
-  const { notesList } = store.getState();
+  const { notesList } = intialState;
+
   if (notesList.length === 0) {
     return <div className="notes-list">Add some notes</div>;
   }
