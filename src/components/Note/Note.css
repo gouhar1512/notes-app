@@ -10,7 +10,9 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.52), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: 200ms;
 }
-
+.note-selected {
+  background-color: #ddecfa;
+}
 .note:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.52), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
