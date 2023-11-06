@@ -1,16 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { notesListActions, notesListReducer } from "./slices/notesListSlice";
+import {
+  noteIdToUpdateActions,
+  noteIdToUpdateReducer,
+} from "./slices/noteIdToUpdateSlice";
 
 const store = configureStore({
   reducer: {
     notesList: notesListReducer,
+    noteIdToUpdate: noteIdToUpdateReducer,
   },
 });
 
-console.log("Initial State", store.getState().notesList);
+console.log("Initial State", store.getState());
 
 store.subscribe(() => {
-  console.log("Updated State", store.getState().notesList);
+  console.log("Updated State", store.getState());
 });
 
 store.dispatch(
@@ -25,5 +30,8 @@ store.dispatch(
     content: "Content one",
   })
 );
+
+store.dispatch(noteIdToUpdateActions.setNoteIdToUpdate(2));
+store.dispatch(noteIdToUpdateActions.resetNoteIdToUpdate());
 
 export default store;
