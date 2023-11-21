@@ -9,7 +9,7 @@ import { setNoteIdToUpdate } from "../../store/slices/noteIdToUpdateSlice";
 const NoteForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  // const id = crypto.randomUUID(); // You can use this to generate random id
+  const id = crypto.randomUUID();
   const [isUpdatingNote, setIsUpdatingNote] = useState(false);
   const dispatch = useDispatch();
 
