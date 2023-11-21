@@ -5,7 +5,7 @@ import { intialState } from "../../store/reference";
 const NoteForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const id = crypto.randomUUID();
+  // const id = crypto.randomUUID(); // You can use this to generate random id
   const [isUpdatingNote, setIsUpdatingNote] = useState(false);
 
   const { notesList } = intialState;

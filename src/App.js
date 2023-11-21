@@ -1,10 +1,10 @@
 import "./App.css";
-import NotesManager from "./components/NotesManager/NotesManager";
+import NotesApp from "./components/NotesApp/NotesApp";
 
 function App() {
   return (
     <div className="App">
-      <NotesManager />
+      <NotesApp />
     </div>
   );
 }
